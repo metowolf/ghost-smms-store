@@ -1,0 +1,18 @@
+{
+  "name": "ghost-smms-store",
+  "version": "1.0.0",
+  "description": "Store Ghost's images on sm.ms",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metowolf/ghost-smms-store.git"
+  },
+  "author": "metowolf <i@i-meto.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "ghost-storage-base": "^0.0.3",
+    "request": "^2.88.0",
+    "smms-cli": "^0.4.0"
+  }
+}
