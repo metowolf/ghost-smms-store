@@ -3,7 +3,6 @@
 const Promise = require('bluebird')
 const BaseAdapter = require('ghost-storage-base')
 const smms = require('smms-cli')
-const request = require('request').defaults({encoding: null})
 
 class SmmsAdapter extends BaseAdapter {
   constructor(options) {
@@ -63,22 +62,10 @@ class SmmsAdapter extends BaseAdapter {
   }
 
   /**
-   * Reads bytes from disk for a target image
-   * - path of target image (without content path!)
-   *
-   * @param options
+   * @Overwrite
+   * Absolute url are already used to link to the images
    */
-  read(options) {
-    const opts = options || {}
-    return new Promise((resolve, reject) => {
-      return request.get(opts.path, (err, res) => {
-        if (err) {
-          return reject(`Could not read image ${opts.path}`)
-        }
-        return resolve(res.body)
-      })
-    })
-  }
+  read(options) {}
 
 }
 

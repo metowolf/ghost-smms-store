@@ -11,12 +11,14 @@
 
 ## Installation
 
+**required Ghost version: 1.x, 2.x**
+
 ### Install from NPM
 
 You will need to have a the custom storage module directly in your project directory, the easiest way to do this is:
 
 ```bash
-$ npm install ghost-smms
+$ npm install ghost-smms-store
 $ mkdir content/storage
 $ cp -r node_modules/ghost-smms-store content/storage/ghost-smms-store
 ```
@@ -28,6 +30,19 @@ $ mkdir -p content/adapters/storage
 $ git clone https://github.com/metowolf/ghost-smms-store.git
 $ cd ghost-smms-store
 $ npm install
+```
+
+### Install in Docker
+
+```yaml
+FROM ghost:alpine
+
+WORKDIR $GHOST_INSTALL/current
+RUN yarn add ghost-smms-store
+RUN mv node_modules/ghost-smms-store core/server/adapters/storage
+WORKDIR $GHOST_INSTALL
+RUN set -ex; \
+    su-exec node ghost config storage.active ghost-smms-store;
 ```
 
 ## Configuration
